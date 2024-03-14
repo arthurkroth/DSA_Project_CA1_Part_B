@@ -32,25 +32,23 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="cmbGenre" min="-2" pref="207" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jScrollPane1" min="-2" pref="298" max="-2" attributes="0"/>
-                                  <EmptySpace pref="54" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnAddLikedSong" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnDeleteSong" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnSearchSong" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnDisplayLikedSongs" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnMoveToGenre" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnRepeat" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="298" max="-2" attributes="0"/>
+                              <EmptySpace pref="54" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnAddLikedSong" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnDeleteSong" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSearchSong" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnDisplayLikedSongs" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnMoveToGenre" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRepeat" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtArtistName" max="32767" attributes="0"/>
-                              <Component id="txtMusicTitle" max="32767" attributes="0"/>
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="txtArtistName" max="32767" attributes="0"/>
+                          <Component id="txtMusicTitle" max="32767" attributes="0"/>
+                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtGenre" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -85,10 +83,10 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cmbGenre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtGenre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -109,7 +107,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -124,9 +122,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMusicTitle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -134,27 +129,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtArtistName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Artist Name"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbGenre">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Pop"/>
-            <StringItem index="1" value="Rock"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -228,6 +207,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Repeat Off"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtGenre">
     </Component>
   </SubComponents>
 </Form>

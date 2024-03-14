@@ -10,11 +10,14 @@ package MusicManager;
  */
 public class MusicManagerGUI extends javax.swing.JFrame {
 
+    private Playlist playlist;
+    
     /**
      * Creates new form MusicManager
      */
     public MusicManagerGUI() {
         initComponents();
+        playlist = new Playlist();
     }
 
     /**
@@ -31,7 +34,6 @@ public class MusicManagerGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtArtistName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbGenre = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -43,21 +45,16 @@ public class MusicManagerGUI extends javax.swing.JFrame {
         btnMoveToGenre = new javax.swing.JButton();
         btnRepeat = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        txtGenre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
         jLabel1.setText("Music Manager");
 
-        txtMusicTitle.setText("jTextField1");
-
         jLabel2.setText("Music Title");
 
-        txtArtistName.setText("jTextField2");
-
         jLabel3.setText("Artist Name");
-
-        cmbGenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pop", "Rock" }));
 
         jLabel4.setText("Genre");
 
@@ -101,22 +98,21 @@ public class MusicManagerGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cmbGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnAddLikedSong)
-                                        .addComponent(btnDeleteSong)
-                                        .addComponent(btnSearchSong)
-                                        .addComponent(btnDisplayLikedSongs)
-                                        .addComponent(btnMoveToGenre)
-                                        .addComponent(btnRepeat)))
-                                .addComponent(txtArtistName)
-                                .addComponent(txtMusicTitle)
-                                .addComponent(jLabel5)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAddLikedSong)
+                                    .addComponent(btnDeleteSong)
+                                    .addComponent(btnSearchSong)
+                                    .addComponent(btnDisplayLikedSongs)
+                                    .addComponent(btnMoveToGenre)
+                                    .addComponent(btnRepeat)))
+                            .addComponent(txtArtistName)
+                            .addComponent(txtMusicTitle)
+                            .addComponent(jLabel5)
+                            .addComponent(txtGenre))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -142,9 +138,9 @@ public class MusicManagerGUI extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(89, 89, 89)
+                    .addComponent(jLabel4)
+                    .addComponent(txtGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(92, 92, 92)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +159,7 @@ public class MusicManagerGUI extends javax.swing.JFrame {
                         .addComponent(btnRepeat)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -171,6 +167,20 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
     private void btnAddLikedSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLikedSongActionPerformed
         // TODO add your handling code here:
+        String songName = txtMusicTitle.getText();
+        String artistName = txtArtistName.getText();
+        String genre = txtGenre.getText();
+        
+        //Creating a new song bject
+        Song newSong = new Song(songName, artistName, genre);
+        
+        //Add to song to the playlist
+        playlist.likeSong(newSong);
+        
+        //wipping info from the text fields after adding song
+        txtArtistName.setText("");
+        txtMusicTitle.setText("");
+        txtGenre.setText("");
     }//GEN-LAST:event_btnAddLikedSongActionPerformed
 
     /**
@@ -216,7 +226,6 @@ public class MusicManagerGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnMoveToGenre;
     private javax.swing.JButton btnRepeat;
     private javax.swing.JButton btnSearchSong;
-    private javax.swing.JComboBox<String> cmbGenre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -226,6 +235,7 @@ public class MusicManagerGUI extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtArtistName;
+    private javax.swing.JTextField txtGenre;
     private javax.swing.JTextField txtMusicTitle;
     // End of variables declaration//GEN-END:variables
 }
