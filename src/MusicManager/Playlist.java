@@ -17,7 +17,8 @@ import javax.swing.JOptionPane;
         private Stack<Song> likedSongStack; // Stack to hold the liked songs
         private String name; // Name of the playlist, useful for identifying it (e.g., "Liked Songs", "Pop", "Rock")
         private boolean repeat = false; // Field to indicate repeat state
-
+        private boolean isRepeatEnabled = false; // Initially, repeat is off
+        
         
     /**
      * Constructs a new Playlist with a specified name.
@@ -111,9 +112,17 @@ import javax.swing.JOptionPane;
         }
         return false; // Song not found
     }
-
-    public void setRepeat(boolean repeat) {
-        this.repeat = repeat;
+    
+    /**
+     * Toggles the repeat state of this playlist.
+     * @param repeat The new repeat state.
+     * @return true if the repeat state was successfully changed, false otherwise.
+     */
+    public boolean setRepeat(boolean repeat) {
+        // Perform necessary checks or state changes
+        // For now, let's assume the state can always be changed successfully
+        this.isRepeatEnabled = repeat;
+        return true; // Return true indicating success
     }
 
     public boolean isRepeat() {
@@ -129,18 +138,42 @@ import javax.swing.JOptionPane;
         } while (playlist.isRepeat());
     }
     
+    // Method to toggle repeat functionality
+    public void toggleRepeat() {
+        isRepeatEnabled = !isRepeatEnabled;
+    }
+
+    // Method to get songs in a circular (repeating) fashion
+    public List<Song> getCircularSongs() {
+        LinkedList<Song> circularList = new LinkedList<>();
+        if (!likedSongStack.isEmpty()) {
+            // Transfer elements from Stack to LinkedList to maintain order
+            likedSongStack.forEach(circularList::addLast);
+        }
+        return circularList; // This list can be iterated in a circular manner for repeat functionality
+    }
     
+    public boolean isRepeatEnabled() {
+        return isRepeatEnabled;
+    }
     
+    public void playSongs(Playlist playlist) {
+    List<Song> songs = playlist.isRepeatEnabled() ? playlist.getCircularSongs() : new ArrayList<>(playlist.likedSongStack);
+
+    // Example of playing songs in a repeating manner
+    // Assuming each playlist has a finite number of songs to be played in a session
+    int playCount = 0;
+    while (playCount < songs.size() || playlist.isRepeatEnabled()) {
+        for (Song song : songs) {
+            // Play the song
+            System.out.println("Playing: " + song.getDetails());
+            if (!playlist.isRepeatEnabled()) {
+                playCount++;
+                if (playCount >= songs.size()) break; // Break out of the loop if not repeating
+            }
+        }
+        if (!playlist.isRepeatEnabled()) break; // Break out of the outer loop if not repeating
+    }
+}
     
-    
-    //FOR TOMORROW - REVIEW THE REPEAT BUTTON
-//    // Method to toggle repeat state
-//    public void toggleRepeat() {
-//        this.isRepeatEnabled = !this.isRepeatEnabled;
-//    }
-//
-//    // Getter for the repeat state
-//    public boolean isRepeatEnabled() {
-//        return isRepeatEnabled;
-//    }
 }

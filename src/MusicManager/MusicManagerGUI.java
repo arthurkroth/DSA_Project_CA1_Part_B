@@ -250,46 +250,52 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
     private void tglRepeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglRepeatActionPerformed
         // TODO add your handling code here:
-        JToggleButton tglButton = (JToggleButton) evt.getSource();
-        if (tglButton.isSelected()) {
-            Object[] options = {"Liked Songs", "Pop", "Rock"};
-            String choice = (String) JOptionPane.showInputDialog(null, "Which playlist do you want to set to repeat?",
-                    "Select Playlist", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+    JToggleButton tglButton = (JToggleButton) evt.getSource();
+    if (tglButton.isSelected()) {
+        Object[] options = {"Liked Songs", "Pop", "Rock"};
+        String choice = (String) JOptionPane.showInputDialog(null, "Which playlist do you want to set to repeat?",
+                "Select Playlist", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
-            if (choice != null) {
-                switch (choice) {
-                    case "Liked Songs":
-                        musicManager.getLikedSongsPlaylist().setRepeat(true);
-                        break;
-                    case "Pop":
-                        musicManager.getPopPlaylist().setRepeat(true);
-                        break;
-                    case "Rock":
-                        musicManager.getRockPlaylist().setRepeat(true);
-                        break;
-                }
+        if (choice != null) {
+            boolean repeatSet;
+            switch (choice) {
+                case "Liked Songs":
+                    repeatSet = musicManager.getLikedSongsPlaylist().setRepeat(true);
+                    break;
+                case "Pop":
+                    repeatSet = musicManager.getPopPlaylist().setRepeat(true);
+                    break;
+                case "Rock":
+                    repeatSet = musicManager.getRockPlaylist().setRepeat(true);
+                    break;
+                default:
+                    repeatSet = false; // Just in case an unexpected value is passed
+            }
+
+            if (repeatSet) {
                 JOptionPane.showMessageDialog(null, choice + " playlist is now set to repeat.");
                 lblRepeat.setText("Repeat ON");
             } else {
-                // User cancelled or closed the dialog; revert toggle button state
-                tglButton.setSelected(false);
+                JOptionPane.showMessageDialog(null, "Unable to set repeat for " + choice + ".");
+                tglButton.setSelected(false); // Revert toggle button state if setting repeat fails
             }
         } else {
-            // Disable repeat for all playlists
-            musicManager.getLikedSongsPlaylist().setRepeat(false);
-            musicManager.getPopPlaylist().setRepeat(false);
-            musicManager.getRockPlaylist().setRepeat(false);
+            // User cancelled or closed the dialog; revert toggle button state
+            tglButton.setSelected(false);
+        }
+    } else {
+        // Disable repeat for all playlists
+        boolean likedReset = musicManager.getLikedSongsPlaylist().setRepeat(false);
+        boolean popReset = musicManager.getPopPlaylist().setRepeat(false);
+        boolean rockReset = musicManager.getRockPlaylist().setRepeat(false);
+        if (likedReset && popReset && rockReset) {
             JOptionPane.showMessageDialog(null, "Repeat is turned off for all playlists.");
             lblRepeat.setText("Repeat OFF");
+        } else {
+            JOptionPane.showMessageDialog(null, "There was an issue turning off repeat.");
+            tglButton.setSelected(true); // Keep the toggle button selected if turning off repeat fails
         }
-
-
-
-//        if (tglRepeat.isSelected()) {
-//            lblRepeat.setText("Repeat ON");
-//        } else {
-//            lblRepeat.setText("Repeat OFF");
-//        }
+    }
     }//GEN-LAST:event_tglRepeatActionPerformed
 
     private void btnDisplayLikedSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayLikedSongsActionPerformed
@@ -308,7 +314,7 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
     private void btnMoveToGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoveToGenreActionPerformed
         // TODO add your handling code here:
-        String selectedGenre = cmbGenre.getSelectedItem().toString();// obtain the genre from your UI component, e.g., dropdown or radio buttons.
+        String selectedGenre = cmbGenre.getSelectedItem().toString();// obtain the genre from the dropdown menu.
         
         boolean success = musicManager.moveLastLikedToGenre(selectedGenre);
         
