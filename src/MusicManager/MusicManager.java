@@ -5,6 +5,7 @@
 package MusicManager;
 
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  * The MusicManager class is responsible for managing all playlist interactions 
@@ -72,5 +73,83 @@ public class MusicManager implements PlaylistManager {
      */
     public List<String> getAllLikedSongDetails() {
         return likedSongs.listAllSongs();
+    }
+    
+     /**
+     * Retrieves a list of all songs in the rock playlist.
+     * @return A list of strings, each string contains the details of a song in the rock playlist.
+     */
+    public List<String> getAllRockSongDetails() {
+        return rockPlaylist.listAllSongs();
+    }
+    
+    /**
+     * Retrieves a list of all songs in the pop playlist.
+     * @return A list of strings, each string contains the details of a song in the pop playlist.
+     */
+    public List<String> getAllPopSongDetails() {
+        return popPlaylist.listAllSongs();
+    }
+    
+        /**
+     * Searches for a song by title in all playlists.
+     * @param title The title of the song to search for.
+     * @return A message indicating whether the song was found and in which playlist(s).
+     */
+    public String searchSong(String title) {
+        boolean foundInLiked = likedSongs.containsSong(title);
+        boolean foundInPop = popPlaylist.containsSong(title);
+        boolean foundInRock = rockPlaylist.containsSong(title);
+        
+        String message = "Song \"" + title + "\" was not found in any playlist.";
+        
+        if (foundInLiked || foundInPop || foundInRock) {
+            message = "Song \"" + title + "\" was found in the following playlist(s): ";
+            if (foundInLiked) message += "\n- Liked Songs";
+            if (foundInPop) message += "\n- Pop";
+            if (foundInRock) message += "\n- Rock";
+        }
+        
+        return message;
+    }
+    
+    
+        /**
+     * Searches for and proposes to delete a song by title from all playlists.
+     * @param title The title of the song to search and potentially delete.
+     * @return A message indicating the outcome.
+     */
+    public String searchAndDeleteSong(String title) {
+        String foundIn = "";
+        if (likedSongs.containsSong(title)) foundIn += "Liked Songs ";
+        if (popPlaylist.containsSong(title)) foundIn += "Pop ";
+        if (rockPlaylist.containsSong(title)) foundIn += "Rock ";
+
+        if (!foundIn.isEmpty()) {
+            int confirmed = JOptionPane.showConfirmDialog(null, 
+                "Song found in: " + foundIn.trim().replaceAll(" ", ", ") + 
+                ".\nDo you want to delete it?", 
+                "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+
+            if (confirmed == JOptionPane.YES_OPTION) {
+                boolean deleted = likedSongs.deleteSong(title) || popPlaylist.deleteSong(title) || rockPlaylist.deleteSong(title);
+                if (deleted) return "Song deleted successfully.";
+            } else {
+                return "Deletion cancelled.";
+            }
+        }
+        return "Song not found in any playlist.";
+    }
+    
+    public Playlist getLikedSongsPlaylist() {
+        return likedSongs;
+    }
+
+    public Playlist getPopPlaylist() {
+        return popPlaylist;
+    }
+
+    public Playlist getRockPlaylist() {
+        return rockPlaylist;
     }
 }

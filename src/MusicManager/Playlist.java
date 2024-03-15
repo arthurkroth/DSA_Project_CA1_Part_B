@@ -16,7 +16,9 @@ import javax.swing.JOptionPane;
     public class Playlist implements SongManager {
         private Stack<Song> likedSongStack; // Stack to hold the liked songs
         private String name; // Name of the playlist, useful for identifying it (e.g., "Liked Songs", "Pop", "Rock")
+        private boolean repeat = false; // Field to indicate repeat state
 
+        
     /**
      * Constructs a new Playlist with a specified name.
      * 
@@ -27,6 +29,12 @@ import javax.swing.JOptionPane;
         this.name = name; // Set the name of the playlist
     }
 
+    // This method returns a List<Song> containing all songs in the playlist
+    public List<Song> getSongs() {
+        return likedSongStack.stream().collect(Collectors.toList());
+    }    
+    
+    
     /**
      * Adds a song to the playlist by pushing it onto the stack.
      * This method overrides the addSong method from the SongManager interface.
@@ -73,8 +81,66 @@ import javax.swing.JOptionPane;
 
         // Convert each Song to its string representation and collect into a list
         return tempStack.stream()
-                        .map(Song::getDetails)
-                        .collect(Collectors.toList());
+        .map(Song::getDetails)
+        .collect(Collectors.toList());
     }
     
+    /**
+     * Checks if a song with the given title exists in the playlist.
+     * @param title The title of the song to search for.
+     * @return true if the song is found, false otherwise.
+     */
+    public boolean containsSong(String title) {
+        return likedSongStack.stream().anyMatch(song -> song.getTitle().equalsIgnoreCase(title));
+    }    
+    
+    
+    
+    /**
+     * Tries to delete a song by its title from this playlist.
+     * @param title The title of the song to be deleted.
+     * @return true if the song was found and deleted, false otherwise.
+     */
+    public boolean deleteSong(String title) {
+        for (Iterator<Song> iterator = likedSongStack.iterator(); iterator.hasNext();) {
+            Song song = iterator.next();
+            if (song.getTitle().equalsIgnoreCase(title)) {
+                iterator.remove(); // Remove the song from the stack
+                return true; // Indicate success
+            }
+        }
+        return false; // Song not found
+    }
+
+    public void setRepeat(boolean repeat) {
+        this.repeat = repeat;
+    }
+
+    public boolean isRepeat() {
+        return repeat;
+    }    
+    
+    public void playSongsFromPlaylist(Playlist playlist) {
+        do {
+            for (Song song : playlist.getSongs()) { // Assuming getSongs returns an iterable collection of songs
+                // Play the song...
+                System.out.println("Playing: " + song.getDetails());
+            }
+        } while (playlist.isRepeat());
+    }
+    
+    
+    
+    
+    
+    //FOR TOMORROW - REVIEW THE REPEAT BUTTON
+//    // Method to toggle repeat state
+//    public void toggleRepeat() {
+//        this.isRepeatEnabled = !this.isRepeatEnabled;
+//    }
+//
+//    // Getter for the repeat state
+//    public boolean isRepeatEnabled() {
+//        return isRepeatEnabled;
+//    }
 }
