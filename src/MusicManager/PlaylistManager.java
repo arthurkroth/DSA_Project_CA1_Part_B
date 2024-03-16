@@ -16,8 +16,7 @@ public interface PlaylistManager {
 
     /**
      * Marks a song as liked, which typically involves adding the song to a
-     * playlist of liked songs. The specifics of how and where the song is added
-     * is determined by the implementing class.
+     * playlist of liked songs.
      *
      * @param song The song to be marked as liked.
      */

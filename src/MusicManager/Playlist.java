@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class Playlist implements SongManager {
 
     private Stack<Song> likedSongStack; // Stack to hold the liked songs
-    private String name; // Name of the playlist, useful for identifying it (e.g., "Liked Songs", "Pop", "Rock")
+    private String name; // Name of the playlist, useful for identifying it.
     private boolean repeat = false; // Field to indicate repeat state
     private boolean isRepeatEnabled = false; // Initially, repeat is off
 
@@ -81,7 +81,7 @@ public class Playlist implements SongManager {
         Stack<Song> tempStack = new Stack<>();
         tempStack.addAll(likedSongStack);
 
-        // Since Stacks use LIFO, we need to reverse it to display songs in the order they were added
+        // Since Stacks use LIFO, reverse it to display songs in the order they were added
         Collections.reverse(tempStack);
 
         // Convert each Song to its string representation and collect into a list
@@ -126,7 +126,6 @@ public class Playlist implements SongManager {
      */
     public boolean setRepeat(boolean repeat) {
         // Perform necessary checks or state changes
-        // For now, let's assume the state can always be changed successfully
         this.isRepeatEnabled = repeat;
         return true; // Return true indicating success
     }
@@ -134,15 +133,7 @@ public class Playlist implements SongManager {
     public boolean isRepeat() {
         return repeat;
     }
-
-    public void playSongsFromPlaylist(Playlist playlist) {
-        do {
-            for (Song song : playlist.getSongs()) { // Assuming getSongs returns an iterable collection of songs
-                // Play the song...
-                System.out.println("Playing: " + song.getDetails());
-            }
-        } while (playlist.isRepeat());
-    }
+    
 
     // Method to toggle repeat functionality
     public void toggleRepeat() {

@@ -38,7 +38,7 @@ public class MusicManager implements PlaylistManager {
      */
     @Override
     public void likeSong(Song song) {
-        likedSongs.addSong(song); // Delegate to the liked songs playlist
+        likedSongs.addSong(song); 
     }
 
     /**

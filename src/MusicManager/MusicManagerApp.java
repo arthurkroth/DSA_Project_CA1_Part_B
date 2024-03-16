@@ -11,12 +11,6 @@ package MusicManager;
  * @author arthurkroth
  */
 public class MusicManagerApp {
-
-    /**
-     * The main method starts the application by setting up the main GUI window.
-     *
-     * @param args Command-line arguments.
-     */
     public static void main(String[] args) {
         // Initialize the main GUI window
         MusicManagerGUI musicManager = new MusicManagerGUI();

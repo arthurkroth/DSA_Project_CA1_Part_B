@@ -277,7 +277,7 @@ public class MusicManagerGUI extends javax.swing.JFrame {
                         selectedPlaylist = musicManager.getRockPlaylist();
                         break;
                     default:
-                        selectedPlaylist = null; // Just in case an unexpected value is passed
+                        selectedPlaylist = null; 
                 }
 
                 if (selectedPlaylist != null && !selectedPlaylist.getSongs().isEmpty()) {
@@ -368,7 +368,7 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
     private void btnSearchSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSongActionPerformed
         // TODO add your handling code here:
-        String title = txtMusicTitle.getText();// Get the song title from a text field or input dialog.
+        String title = txtMusicTitle.getText();// Get the song title from a text field.
         if (title.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter a Music Title.");
             return;
@@ -379,7 +379,7 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
     private void btnDeleteSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSongActionPerformed
         // TODO add your handling code here:
-        String title = txtMusicTitle.getText(); // Assuming txtMusicTitle is your JTextField for the song title.
+        String title = txtMusicTitle.getText(); // Get the song title from a text field.
         if (title.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter a Music Title.");
             return;

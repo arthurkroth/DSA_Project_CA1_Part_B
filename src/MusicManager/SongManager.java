@@ -15,18 +15,15 @@ package MusicManager;
 public interface SongManager {
 
     /**
-     * Adds a song to the manager's collection. The implementation should define
-     * the exact behaviour, such as adding to a database, a playlist, or a set
-     * of songs in memory.
+     * Adds a song to the manager's collection.
      *
      * @param song The song to be added.
      */
     void addSong(Song song);
 
     /**
-     * Retrieves details about a specific song. The details could include the
-     * title, artist, and genre, or any other information that the
-     * implementation considers relevant.
+     * Retrieves details about a specific song. The details include the
+     * title, artist, and genre
      *
      * @param song The song for which details should be retrieved.
      * @return A string containing details about the song.
