@@ -16,7 +16,7 @@ import javax.swing.JToggleButton;
 public class MusicManagerGUI extends javax.swing.JFrame {
 
     private MusicManager musicManager;
-    
+
     /**
      * Creates new form MusicManager
      */
@@ -70,35 +70,35 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
         lblPlaylist.setText("Playlist:");
 
-        btnAddLikedSong.setText("Add to Liked Songs");
+        btnAddLikedSong.setText("Add to Liked Playlist");
         btnAddLikedSong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddLikedSongActionPerformed(evt);
             }
         });
 
-        btnDeleteSong.setText("Delete Song");
+        btnDeleteSong.setText("Delete by Title");
         btnDeleteSong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteSongActionPerformed(evt);
             }
         });
 
-        btnSearchSong.setText("Search Song Title");
+        btnSearchSong.setText("Search by Title");
         btnSearchSong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchSongActionPerformed(evt);
             }
         });
 
-        btnDisplayLikedSongs.setText("List Liked Songs");
+        btnDisplayLikedSongs.setText("Show Liked Playlist");
         btnDisplayLikedSongs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDisplayLikedSongsActionPerformed(evt);
             }
         });
 
-        btnMoveToGenre.setText("Move Last Liked to Genre Playlist");
+        btnMoveToGenre.setText("Move last liked to Genre Playlist");
         btnMoveToGenre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMoveToGenreActionPerformed(evt);
@@ -107,14 +107,14 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
         lblRepeat.setText("Repeat Off");
 
-        btnRockPlaylist.setText("List Rock Playlist");
+        btnRockPlaylist.setText("Show Rock Playlist");
         btnRockPlaylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRockPlaylistActionPerformed(evt);
             }
         });
 
-        btnPopPlaylist.setText("List Pop Paylist");
+        btnPopPlaylist.setText("Show Pop Playlist");
         btnPopPlaylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPopPlaylistActionPerformed(evt);
@@ -137,23 +137,24 @@ public class MusicManagerGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 38, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMoveToGenre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSearchSong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDeleteSong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddLikedSong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tglRepeat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDisplayLikedSongs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRockPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPopPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(lblRepeat, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddLikedSong)
-                    .addComponent(btnDeleteSong)
-                    .addComponent(btnSearchSong)
-                    .addComponent(btnDisplayLikedSongs)
-                    .addComponent(btnMoveToGenre)
-                    .addComponent(btnRockPlaylist)
-                    .addComponent(btnPopPlaylist)
-                    .addComponent(tglRepeat))
                 .addGap(54, 54, 54))
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -171,10 +172,10 @@ public class MusicManagerGUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
-                            .addComponent(cmbGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMusicTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
-                            .addComponent(txtArtistName, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtArtistName, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -200,16 +201,13 @@ public class MusicManagerGUI extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(lblPlaylist)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(24, 24, 24)
-                        .addComponent(lblRepeat)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                        .addGap(24, 24, 24))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
                         .addComponent(btnAddLikedSong)
                         .addGap(18, 18, 18)
                         .addComponent(btnDeleteSong)
@@ -225,7 +223,11 @@ public class MusicManagerGUI extends javax.swing.JFrame {
                         .addComponent(btnRockPlaylist)
                         .addGap(18, 18, 18)
                         .addComponent(btnPopPlaylist)
-                        .addContainerGap(71, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(lblRepeat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -233,94 +235,98 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
     private void btnAddLikedSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddLikedSongActionPerformed
         // TODO add your handling code here:
-        String songName = txtMusicTitle.getText();
-        String artistName = txtArtistName.getText();
+        String songName = txtMusicTitle.getText().trim();
+        String artistName = txtArtistName.getText().trim();
         String genre = cmbGenre.getSelectedItem().toString();
-        
-        //Creating a new song bject
-        Song newSong = new Song(songName, artistName, genre);
-        
-        //Add to song to the playlist
-        musicManager.likeSong(newSong);
-        
-        //wipping info from the text fields after adding song
-        txtArtistName.setText("");
-        txtMusicTitle.setText("");
+
+        // Check if the song name or artist name fields are empty
+        if (songName.isEmpty() || artistName.isEmpty()) {
+            // Display an error message dialog to the user
+            JOptionPane.showMessageDialog(this, "Music Title and Artist Name must not be empty.", "Input Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // Create a new Song object
+            Song newSong = new Song(songName, artistName, genre);
+
+            // Add the song to the liked songs playlist
+            musicManager.likeSong(newSong);
+
+            // Clear the text fields after adding the song
+            txtArtistName.setText("");
+            txtMusicTitle.setText("");
+        }
     }//GEN-LAST:event_btnAddLikedSongActionPerformed
 
     private void tglRepeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglRepeatActionPerformed
         // TODO add your handling code here:
-    JToggleButton tglButton = (JToggleButton) evt.getSource();
-    if (tglButton.isSelected()) {
-        Object[] options = {"Liked Songs", "Pop", "Rock"};
-        String choice = (String) JOptionPane.showInputDialog(null, "Which playlist do you want to set to repeat?",
-                "Select Playlist", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        JToggleButton tglButton = (JToggleButton) evt.getSource();
+        if (tglButton.isSelected()) {
+            Object[] options = {"Liked Songs", "Pop", "Rock"};
+            String choice = (String) JOptionPane.showInputDialog(null, "Which playlist do you want to set to repeat?",
+                    "Select Playlist", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
-        if (choice != null) {
-            boolean repeatSet;
-            switch (choice) {
-                case "Liked Songs":
-                    repeatSet = musicManager.getLikedSongsPlaylist().setRepeat(true);
-                    break;
-                case "Pop":
-                    repeatSet = musicManager.getPopPlaylist().setRepeat(true);
-                    break;
-                case "Rock":
-                    repeatSet = musicManager.getRockPlaylist().setRepeat(true);
-                    break;
-                default:
-                    repeatSet = false; // Just in case an unexpected value is passed
-            }
+            if (choice != null) {
+                Playlist selectedPlaylist;
+                switch (choice) {
+                    case "Liked Songs":
+                        selectedPlaylist = musicManager.getLikedSongsPlaylist();
+                        break;
+                    case "Pop":
+                        selectedPlaylist = musicManager.getPopPlaylist();
+                        break;
+                    case "Rock":
+                        selectedPlaylist = musicManager.getRockPlaylist();
+                        break;
+                    default:
+                        selectedPlaylist = null; // Just in case an unexpected value is passed
+                }
 
-            if (repeatSet) {
-                JOptionPane.showMessageDialog(null, choice + " playlist is now set to repeat.");
-                lblRepeat.setText("Repeat ON");
+                if (selectedPlaylist != null && !selectedPlaylist.getSongs().isEmpty()) {
+                    selectedPlaylist.setRepeat(true);
+                    JOptionPane.showMessageDialog(null, choice + " playlist is now set to repeat.");
+                    lblRepeat.setText("Repeat ON");
+                } else {
+                    JOptionPane.showMessageDialog(null, "The " + choice + " playlist is empty and cannot be set to repeat.");
+                    tglButton.setSelected(false); // Revert toggle button state
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Unable to set repeat for " + choice + ".");
-                tglButton.setSelected(false); // Revert toggle button state if setting repeat fails
+                // User cancelled or closed the dialog; revert toggle button state
+                tglButton.setSelected(false);
             }
         } else {
-            // User cancelled or closed the dialog; revert toggle button state
-            tglButton.setSelected(false);
-        }
-    } else {
-        // Disable repeat for all playlists
-        boolean likedReset = musicManager.getLikedSongsPlaylist().setRepeat(false);
-        boolean popReset = musicManager.getPopPlaylist().setRepeat(false);
-        boolean rockReset = musicManager.getRockPlaylist().setRepeat(false);
-        if (likedReset && popReset && rockReset) {
+            // Disable repeat for all playlists
+            musicManager.getLikedSongsPlaylist().setRepeat(false);
+            musicManager.getPopPlaylist().setRepeat(false);
+            musicManager.getRockPlaylist().setRepeat(false);
             JOptionPane.showMessageDialog(null, "Repeat is turned off for all playlists.");
             lblRepeat.setText("Repeat OFF");
-        } else {
-            JOptionPane.showMessageDialog(null, "There was an issue turning off repeat.");
-            tglButton.setSelected(true); // Keep the toggle button selected if turning off repeat fails
         }
-    }
     }//GEN-LAST:event_tglRepeatActionPerformed
 
     private void btnDisplayLikedSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayLikedSongsActionPerformed
         // TODO add your handling code here:
         List<String> songDetails = musicManager.getAllLikedSongDetails();
-        
-        DefaultListModel<String> model = new DefaultListModel<>();
-        lblPlaylist.setText("Liked Playlist:");
-        
-        songDetails.forEach(model::addElement);
-        
-        listPlaylist.setModel(model);
-        
-//        txtDisplayPlaylist.setText(musicManager.listAllLikedSongs());
+
+        if (songDetails.isEmpty()) {
+            // Notify user that the Liked Playlist is empty
+            JOptionPane.showMessageDialog(this, "The Liked Playlist is empty.", "Playlist Empty", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            // Populate the list if there are songs to display
+            DefaultListModel<String> model = new DefaultListModel<>();
+            lblPlaylist.setText("Liked Playlist:");
+
+            songDetails.forEach(model::addElement);
+            listPlaylist.setModel(model);
+        }
     }//GEN-LAST:event_btnDisplayLikedSongsActionPerformed
 
     private void btnMoveToGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoveToGenreActionPerformed
         // TODO add your handling code here:
         String selectedGenre = cmbGenre.getSelectedItem().toString();// obtain the genre from the dropdown menu.
-        
+
         boolean success = musicManager.moveLastLikedToGenre(selectedGenre);
-        
+
         if (success) {
-            JOptionPane.showMessageDialog(null, "Song moved to " + selectedGenre + " playlist successfully!");
-            // Optionally, update the UI to reflect the change.
+            JOptionPane.showMessageDialog(null, "Song moved to genre playlist successfully!");
         } else {
             JOptionPane.showMessageDialog(null, "Failed to move the song. Make sure there's a song to move and the genre is correct.");
         }
@@ -328,47 +334,60 @@ public class MusicManagerGUI extends javax.swing.JFrame {
 
     private void btnRockPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRockPlaylistActionPerformed
         // TODO add your handling code here:
-        List<String> rockSongs = musicManager.getAllRockSongDetails();
-        
-        DefaultListModel<String> model = new DefaultListModel<>();
-        for (String songDetail : rockSongs) {
-            model.addElement(songDetail);
+        List<String> songDetails = musicManager.getAllRockSongDetails();
+
+        if (songDetails.isEmpty()) {
+            // Notify the user that the Rock Playlist is empty
+            JOptionPane.showMessageDialog(this, "The Rock Playlist is empty.", "Playlist Empty", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            // Populate the list if there are songs to display
+            DefaultListModel<String> model = new DefaultListModel<>();
+            lblPlaylist.setText("Rock Playlist:");
+
+            songDetails.forEach(model::addElement);
+            listPlaylist.setModel(model);
         }
-        
-        lblPlaylist.setText("Rock Playlist:");
-        listPlaylist.setModel(model);        
     }//GEN-LAST:event_btnRockPlaylistActionPerformed
 
     private void btnPopPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPopPlaylistActionPerformed
         // TODO add your handling code here:
-        List<String> popSongs = musicManager.getAllPopSongDetails();
-        
-        DefaultListModel<String> model = new DefaultListModel<>();
-        popSongs.forEach(model::addElement);
-        
-        lblPlaylist.setText("Pop Playlist:");
-        listPlaylist.setModel(model);
+        List<String> songDetails = musicManager.getAllPopSongDetails();
+
+        if (songDetails.isEmpty()) {
+            // Notify the user that the Pop Playlist is empty
+            JOptionPane.showMessageDialog(this, "The Pop Playlist is empty.", "Playlist Empty", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            // Populate the list if there are songs to display
+            DefaultListModel<String> model = new DefaultListModel<>();
+            lblPlaylist.setText("Pop Playlist:");
+
+            songDetails.forEach(model::addElement);
+            listPlaylist.setModel(model);
+        }
     }//GEN-LAST:event_btnPopPlaylistActionPerformed
 
     private void btnSearchSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSongActionPerformed
         // TODO add your handling code here:
         String title = txtMusicTitle.getText();// Get the song title from a text field or input dialog.
+        if (title.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter a Music Title.");
+            return;
+        }
         String message = musicManager.searchSong(title);
-        JOptionPane.showMessageDialog(null, message);        
+        JOptionPane.showMessageDialog(null, message);
     }//GEN-LAST:event_btnSearchSongActionPerformed
 
     private void btnDeleteSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSongActionPerformed
         // TODO add your handling code here:
         String title = txtMusicTitle.getText(); // Assuming txtMusicTitle is your JTextField for the song title.
         if (title.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter a song title.");
+            JOptionPane.showMessageDialog(null, "Please enter a Music Title.");
             return;
         }
-        
+
         String message = musicManager.searchAndDeleteSong(title);
         JOptionPane.showMessageDialog(null, message);
 
-        
         listPlaylist.setModel(new DefaultListModel<>());
     }//GEN-LAST:event_btnDeleteSongActionPerformed
 

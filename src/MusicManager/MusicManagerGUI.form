@@ -24,25 +24,27 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="38" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" min="-2" pref="377" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="377" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnMoveToGenre" max="32767" attributes="0"/>
+                          <Component id="btnSearchSong" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnDeleteSong" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnAddLikedSong" alignment="0" max="32767" attributes="0"/>
+                          <Component id="tglRepeat" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnDisplayLikedSongs" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnRockPlaylist" max="32767" attributes="0"/>
+                          <Component id="btnPopPlaylist" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="lblRepeat" min="-2" pref="83" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jSeparator3" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnAddLikedSong" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnDeleteSong" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSearchSong" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnDisplayLikedSongs" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnMoveToGenre" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnRockPlaylist" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnPopPlaylist" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="tglRepeat" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
@@ -64,10 +66,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbGenre" min="-2" max="-2" attributes="0"/>
                           <Component id="txtMusicTitle" min="-2" pref="559" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtArtistName" min="-2" pref="559" max="-2" attributes="0"/>
+                          <Component id="cmbGenre" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -98,17 +100,14 @@
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="lblPlaylist" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="298" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="lblRepeat" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator3" min="-2" pref="11" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Component id="btnAddLikedSong" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnDeleteSong" min="-2" max="-2" attributes="0"/>
@@ -124,9 +123,13 @@
                       <Component id="btnRockPlaylist" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnPopPlaylist" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <Component id="lblRepeat" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSeparator3" min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -166,7 +169,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAddLikedSong">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add to Liked Songs"/>
+        <Property name="text" type="java.lang.String" value="Add to Liked Playlist"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddLikedSongActionPerformed"/>
@@ -174,7 +177,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDeleteSong">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Delete Song"/>
+        <Property name="text" type="java.lang.String" value="Delete by Title"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteSongActionPerformed"/>
@@ -182,7 +185,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSearchSong">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Search Song Title"/>
+        <Property name="text" type="java.lang.String" value="Search by Title"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchSongActionPerformed"/>
@@ -190,7 +193,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDisplayLikedSongs">
       <Properties>
-        <Property name="text" type="java.lang.String" value="List Liked Songs"/>
+        <Property name="text" type="java.lang.String" value="Show Liked Playlist"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDisplayLikedSongsActionPerformed"/>
@@ -198,7 +201,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnMoveToGenre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Move Last Liked to Genre Playlist"/>
+        <Property name="text" type="java.lang.String" value="Move last liked to Genre Playlist"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMoveToGenreActionPerformed"/>
@@ -211,7 +214,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnRockPlaylist">
       <Properties>
-        <Property name="text" type="java.lang.String" value="List Rock Playlist"/>
+        <Property name="text" type="java.lang.String" value="Show Rock Playlist"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRockPlaylistActionPerformed"/>
@@ -219,7 +222,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPopPlaylist">
       <Properties>
-        <Property name="text" type="java.lang.String" value="List Pop Paylist"/>
+        <Property name="text" type="java.lang.String" value="Show Pop Playlist"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPopPlaylistActionPerformed"/>
