@@ -177,4 +177,10 @@ public class Playlist implements SongManager {
         }
     }
 
+    public void clear() {
+        while (!likedSongStack.isEmpty()) {
+            likedSongStack.pop();
+        }
+    }
+
 }
