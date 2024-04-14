@@ -47,7 +47,7 @@ public class Playlist implements SongManager {
     @Override
     public void addSong(Song song) {
         likedSongStack.push(song); // Push the song onto the stack
-        JOptionPane.showMessageDialog(null, "Song added: " + song.getDetails()); // Console output for user feedback
+        JOptionPane.showMessageDialog(null, "Song added: " + song.getDetails());
     }
 
     /**
@@ -135,11 +135,6 @@ public class Playlist implements SongManager {
     }
     
 
-    // Method to toggle repeat functionality
-    public void toggleRepeat() {
-        isRepeatEnabled = !isRepeatEnabled;
-    }
-
     // Method to get songs in a circular (repeating) fashion
     public List<Song> getCircularSongs() {
         LinkedList<Song> circularList = new LinkedList<>();
@@ -152,29 +147,6 @@ public class Playlist implements SongManager {
 
     public boolean isRepeatEnabled() {
         return isRepeatEnabled;
-    }
-
-    public void playSongs(Playlist playlist) {
-        List<Song> songs = playlist.isRepeatEnabled() ? playlist.getCircularSongs() : new ArrayList<>(playlist.likedSongStack);
-
-        // Example of playing songs in a repeating manner
-        // Assuming each playlist has a finite number of songs to be played in a session
-        int playCount = 0;
-        while (playCount < songs.size() || playlist.isRepeatEnabled()) {
-            for (Song song : songs) {
-                // Play the song
-                System.out.println("Playing: " + song.getDetails());
-                if (!playlist.isRepeatEnabled()) {
-                    playCount++;
-                    if (playCount >= songs.size()) {
-                        break; // Break out of the loop if not repeating
-                    }
-                }
-            }
-            if (!playlist.isRepeatEnabled()) {
-                break; // Break out of the outer loop if not repeating
-            }
-        }
     }
 
     public void clear() {

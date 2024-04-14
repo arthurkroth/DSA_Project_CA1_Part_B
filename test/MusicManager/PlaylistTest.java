@@ -100,16 +100,6 @@ public class PlaylistTest {
         assertTrue("Repeat should be enabled", playlist.isRepeatEnabled());
     }
     
-    /**
-     * Tests the behavior of toggleRepeat() in enabling and disabling repeat functionality.
-     */
-    @Test
-    public void testToggleRepeat() {
-        playlist.toggleRepeat();
-        assertTrue("Repeat should be enabled after toggle", playlist.isRepeatEnabled());
-        playlist.toggleRepeat();
-        assertFalse("Repeat should be disabled after second toggle", playlist.isRepeatEnabled());
-    }
     
     /**
      * Tests if getCircularSongs() correctly returns a list for repeating songs.
