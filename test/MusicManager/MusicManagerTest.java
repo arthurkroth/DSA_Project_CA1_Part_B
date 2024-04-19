@@ -139,7 +139,7 @@ public class MusicManagerTest {
     }
 
     /**
-     * Confirms that the pop song detail list is empty when no pop songs are added.
+     * Confirms that the pop song detail list is empty when no pop songs are added
      */
     @Test
     public void testGetAllPopSongDetailsWhenEmpty() {
